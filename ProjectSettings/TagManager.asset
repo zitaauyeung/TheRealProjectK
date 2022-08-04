@@ -3,7 +3,22 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - WCdoors
+  - Door
+  - locked
+  - Inside
+  - Outside
+  - slots
+  - NPC
+  - fill
+  - i
+  - s
+  - z
+  - l
+  - j
+  - t
+  - square
   layers:
   - Default
   - TransparentFX
