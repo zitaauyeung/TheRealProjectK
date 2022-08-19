@@ -11,11 +11,9 @@ public class Gazebo : MonoBehaviour
         frame.SetActive(false);
         if (frame.activeSelf)
         {
-            Debug.Log("t");
         }
         else
         {
-            Debug.Log("f");
         }
     }
 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4137108107159979312}
   - component: {fileID: 4137108107159979313}
   - component: {fileID: -2679926364684796539}
+  - component: {fileID: -8288430969550473229}
   m_Layer: 0
   m_Name: zPiece
   m_TagString: z
@@ -138,3 +139,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-8288430969550473229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4137108107159979315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa15bf4c3eaff4d068d485c14c5e6e30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

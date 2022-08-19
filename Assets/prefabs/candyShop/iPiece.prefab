@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 277379745710233181}
   - component: {fileID: -2775991208572251504}
   - component: {fileID: 1001066081294458358}
+  - component: {fileID: -7295176101770565028}
   m_Layer: 0
   m_Name: iPiece
   m_TagString: i
@@ -131,3 +132,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-7295176101770565028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9073804157787926377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa15bf4c3eaff4d068d485c14c5e6e30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

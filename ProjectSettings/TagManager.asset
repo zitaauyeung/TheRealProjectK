@@ -19,6 +19,7 @@ TagManager:
   - j
   - t
   - square
+  - unlocked
   layers:
   - Default
   - TransparentFX

@@ -12,6 +12,9 @@ public class DatabaseScrambler : MonoBehaviour
     public GameObject box;
     public GameObject letters;
 
+    public Transform boxSlot2;
+    public Transform letterSlot2;
+
     public Transform boxSlot;
     public Transform letterSlot;
 
@@ -21,6 +24,8 @@ public class DatabaseScrambler : MonoBehaviour
 
     public Text nameBox;
     private Transform currentButton;
+
+    private bool longName = false;
    
     string[] charList = new string[] {"*construction noises*", "antersons", "boss", "francis", "harry", "irwin", "karen", "keith/kevin kevin/keith", "matt", "robert", "shady", "wolfgang"};
     string[] scrambledCharList = new string[] { "*tinonorccuts onssie*", "sensnarto", "osbs", "carsfin", "rhyra", "riwin", "anrek", "kehit venki/venik hekti", "tamt", "orrbte", "daysughy", "nawlgfog" };
@@ -41,6 +46,14 @@ public class DatabaseScrambler : MonoBehaviour
     public void checkLock(Transform input)
     {
         currentButton = input;
+        if (input.name == "*construction noises*")
+        {
+            longName = true;
+        }
+        else
+        {
+            longName = false;
+        }
         int num = 0;
         for (int i = 0; i < charList.Length; i++)
         {
@@ -86,17 +99,48 @@ public class DatabaseScrambler : MonoBehaviour
     public void setUp()
     {
         nameBox.text = scrambledCharList[listVal];
-        for (int i = 0; i < charList[listVal].Length; i++)
+        if (longName == true)
         {
-            GameObject y = Instantiate(box, boxSlot);
-            GameObject x = Instantiate(letters, letterSlot);
-            slots.Add(x);
-            slots.Add(y);
-            letterSlots.Add(x);
-            slotBoxes.Add(y);
-            x.SetActive(true);
-            x.transform.GetChild(0).GetComponent<Text>().text = scrambledCharList[listVal][i].ToString();
-            y.transform.GetChild(0).GetComponent<Text>().text = charList[listVal][i].ToString();
+            Debug.Log("s");
+            for (int i = 1; i < 13; i++)
+            {
+                GameObject y = Instantiate(box, boxSlot);
+                GameObject x = Instantiate(letters, letterSlot);
+                slots.Add(x);
+                slots.Add(y);
+                letterSlots.Add(x);
+                slotBoxes.Add(y);
+                x.SetActive(true);
+                x.transform.GetChild(0).GetComponent<Text>().text = scrambledCharList[listVal][i].ToString();
+                y.transform.GetChild(0).GetComponent<Text>().text = charList[listVal][i].ToString();
+            }
+            for (int i = 14; i < (charList[listVal].Length-1); i++)
+            {
+                GameObject y = Instantiate(box, boxSlot2);
+                GameObject x = Instantiate(letters, letterSlot2);
+                slots.Add(x);
+                slots.Add(y);
+                letterSlots.Add(x);
+                slotBoxes.Add(y);
+                x.SetActive(true);
+                x.transform.GetChild(0).GetComponent<Text>().text = scrambledCharList[listVal][i].ToString();
+                y.transform.GetChild(0).GetComponent<Text>().text = charList[listVal][i].ToString();
+            }
+        }
+        else
+        {
+            for (int i = 0; i < charList[listVal].Length; i++)
+            {
+                GameObject y = Instantiate(box, boxSlot);
+                GameObject x = Instantiate(letters, letterSlot);
+                slots.Add(x);
+                slots.Add(y);
+                letterSlots.Add(x);
+                slotBoxes.Add(y);
+                x.SetActive(true);
+                x.transform.GetChild(0).GetComponent<Text>().text = scrambledCharList[listVal][i].ToString();
+                y.transform.GetChild(0).GetComponent<Text>().text = charList[listVal][i].ToString();
+            }
         }
     }
 

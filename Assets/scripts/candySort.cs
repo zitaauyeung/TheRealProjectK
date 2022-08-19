@@ -13,20 +13,14 @@ public class candySort : MonoBehaviour
     public GameObject jPiece;
     public GameObject player;
 
-    private Vector2 temp;
+    private Vector3 temp;
+
+    private List<GameObject> totalPieces = new List<GameObject>{};
 
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 7; i++) {
-            Instantiate(iPiece);
-            Instantiate(squarePiece);
-            Instantiate(tPiece);
-            Instantiate(sPiece);
-            Instantiate(zPiece);
-            Instantiate(lPiece);
-            Instantiate(jPiece);
-        }
+        
     }
 
     // Update is called once per frame
@@ -36,14 +30,28 @@ public class candySort : MonoBehaviour
     }
 
     public void sortEnter() {
-        temp = player.transform.position;
-        player.transform.position = new Vector2(40f, 70f);
+        temp = player.transform.GetChild(0).transform.position;
+        player.transform.GetChild(0).transform.position = new Vector3(40f, 70f, -10f);
         this.gameObject.SetActive(true);
+        for (int i = 0; i < 9; i++)
+        {
+            totalPieces.Add(Instantiate(iPiece,new Vector2(Random.Range(35,46),70f), this.transform.rotation));
+            totalPieces.Add(Instantiate(squarePiece, new Vector2(Random.Range(35, 46), 71f), this.transform.rotation));
+            totalPieces.Add(Instantiate(tPiece, new Vector2(Random.Range(35, 46), 69.5f), this.transform.rotation));
+            totalPieces.Add(Instantiate(sPiece, new Vector2(Random.Range(35, 46), 68.5f), this.transform.rotation));
+            totalPieces.Add(Instantiate(zPiece, new Vector2(Random.Range(35, 46), 69f), this.transform.rotation));
+            totalPieces.Add(Instantiate(lPiece, new Vector2(Random.Range(35, 46), 71.5f), this.transform.rotation));
+            totalPieces.Add(Instantiate(jPiece, new Vector2(Random.Range(35, 46), 70.5f), this.transform.rotation));
+        }
     }
 
     public void sortExit() { 
-        player.transform.position = temp;
+        player.transform.GetChild(0).transform.position = temp;
         this.gameObject.SetActive(false);
-        
+        for (int i = 0; i < totalPieces.Count; i++) {
+            Destroy(totalPieces[i]);
+        }
+        totalPieces.Clear();
+
     }
 }
