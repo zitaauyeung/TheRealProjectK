@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7181368600321925700}
   - component: {fileID: 7181368600321925701}
   - component: {fileID: 7181368600321925702}
+  - component: {fileID: 5722160164003217708}
   m_Layer: 0
   m_Name: NPC
   m_TagString: NPC
@@ -81,7 +82,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &7181368600321925701
@@ -136,3 +137,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3, y: 3}
   m_EdgeRadius: 0
+--- !u!114 &5722160164003217708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7181368600321925703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44a2dd81d82ba41ed8b3b08b3741c4a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counter: 0

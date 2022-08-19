@@ -29,7 +29,6 @@ public class NPCInteraction : MonoBehaviour
         dialManager = textbox.GetComponent<dialogueManager>();
         line = 0;
 
-        dialBox.dialoguePoof(false);
         npcName = "null";
     }
 

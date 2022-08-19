@@ -8,11 +8,15 @@ public class playerMove : MonoBehaviour
     public bool canMove;
 
     private Rigidbody2D rb;
+    private static Animator anim;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         canMove = true;
+        anim = GetComponent<Animator>();
+        anim.SetBool("stop", true);
+        anim.SetBool("mini", false);
     }
 
     // Update is called once per frame
@@ -22,24 +26,33 @@ public class playerMove : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
             {
-                rb.velocity = new Vector2(-speed, 0f);
+                rb.velocity = Vector2.left * speed;
+                anim.SetBool("stop", false);
+                anim.SetTrigger("left");
             }
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
             {
-                rb.velocity = new Vector2(0, speed);
+                rb.velocity = Vector2.up * speed;
+                anim.SetBool("stop", false);
+                anim.SetTrigger("up");
             }
             if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
             {
-                rb.velocity = new Vector2(speed, 0);
+                rb.velocity = Vector2.right * speed;
+                anim.SetBool("stop", false);
+                anim.SetTrigger("right");
             }
             if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
             {
-                rb.velocity = new Vector2(0f, -speed);
+                rb.velocity = Vector2.down * speed;
+                anim.SetBool("stop", false);
+                anim.SetTrigger("down");
             }
 
             if (leftConditions() || upConditions() || rightConditions() || downConditions())
             {
-                rb.velocity = new Vector2(0f, 0f);
+                rb.velocity = Vector2.zero;
+                anim.SetBool("stop", true);
             }
         }
     }
@@ -60,4 +73,15 @@ public class playerMove : MonoBehaviour
     {
         return Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.S);
     }
+
+    public static void changeMiniStatus(bool value)
+    {
+        anim.SetBool("mini", value);
+    }
+
+    public static void setIdle(string direct)
+    {
+        anim.SetTrigger(direct);
+    }
+
 }
