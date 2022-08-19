@@ -12,6 +12,16 @@ TagManager:
   - slots
   - NPC
   - fill
+<<<<<<< HEAD
+=======
+  - i
+  - s
+  - z
+  - l
+  - j
+  - t
+  - square
+>>>>>>> e4f3152b090d698db8413c989d3f5d42c1afa876
   layers:
   - Default
   - TransparentFX
