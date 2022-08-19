@@ -12,16 +12,20 @@ public class moveAroundMap : MonoBehaviour
         {
             Debug.Log(node.transform.tag);
             c.transform.position = node.position;
-            if (node.transform.tag == "Inside" || node.transform.tag == "WCdoors")
+            if (node.transform.tag == "Inside")
             {
-                c.GetComponent<BoxCollider2D>().offset = new Vector2(0.0140571f, -0.4498277f);
-                c.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Player 1");
+                playerMove.changeMiniStatus(false);
+                playerMove.setIdle("down");
+                //c.gameObject.GetComponent<Collider2D>().
             }
             else
             {
-                c.GetComponent<BoxCollider2D>().offset = new Vector2(0f, -0.12f);
-                c.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("BetterMinimapPlayer");
-            } 
+                playerMove.changeMiniStatus(true);
+                if (node.gameObject.name == "parkOutside")
+                    playerMove.setIdle("up");
+                else
+                    playerMove.setIdle("down");
+            }
         }
     }
 }

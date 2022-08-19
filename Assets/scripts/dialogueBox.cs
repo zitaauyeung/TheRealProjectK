@@ -17,6 +17,8 @@ public class dialogueBox : MonoBehaviour
     {
         isDone = true;
         nameTag = transform.GetChild(1).GetChild(0).gameObject.GetComponent<Text>();
+        Debug.Log(nameTag);
+        dialoguePoof(false);
     }
 
     public void showDialogue(string dialogue)
